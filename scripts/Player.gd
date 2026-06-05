@@ -9,7 +9,9 @@ var camera = null
 var touch_dir = Vector2.ZERO
 var touch_running = false
 var joystick_active = false
+var joystick_pointer_id = -1
 var joystick_start = Vector2.ZERO
+var joystick_center = Vector2.ZERO
 var joy_knob = null
 var joy_knob_origin = Vector2.ZERO
 
@@ -54,6 +56,7 @@ func _create_touch_controls():
 	# 摇杆旋钮（居中）
 	var nub_sz = Vector2(52, 52)
 	var center = pad_pos + pad_sz / 2
+	joystick_center = center
 	joy_knob_origin = center - nub_sz / 2
 	if nub_tex:
 		joy_knob = TextureRect.new()
@@ -108,26 +111,54 @@ func _create_touch_controls():
 	
 	get_tree().current_scene.add_child(layer)
 
-# 触摸输入
+# 摇杆输入：同时支持移动端触摸和电脑鼠标拖动
 func _input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:
-			joystick_start = event.position
-			joystick_active = true
+			_start_joystick(event.position, event.index)
 		else:
-			joystick_active = false
-			touch_dir = Vector2.ZERO
-			if joy_knob:
-				joy_knob.position = joy_knob_origin
+			_stop_joystick(event.index)
 	if event is InputEventScreenDrag and joystick_active:
-		var delta = event.position - joystick_start
-		var dist = delta.length()
-		if dist > JOY_RADIUS:
-			delta = delta.normalized() * JOY_RADIUS
-		touch_dir = delta.normalized() if dist > 15 else Vector2.ZERO
-		touch_running = dist > JOY_RADIUS * 0.65
-		if joy_knob:
-			joy_knob.position = joy_knob_origin + delta
+		if joystick_pointer_id == event.index:
+			_update_joystick(event.position)
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			_start_joystick(event.position, -1)
+		else:
+			_stop_joystick(-1)
+	if event is InputEventMouseMotion and joystick_active and joystick_pointer_id == -1:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			_update_joystick(event.position)
+
+func _start_joystick(screen_pos, pointer_id):
+	if joystick_center == Vector2.ZERO:
+		return
+	if screen_pos.distance_to(joystick_center) > JOY_RADIUS * 1.15:
+		return
+	joystick_start = joystick_center
+	joystick_pointer_id = pointer_id
+	joystick_active = true
+	_update_joystick(screen_pos)
+
+func _update_joystick(screen_pos):
+	var delta = screen_pos - joystick_start
+	var dist = delta.length()
+	if dist > JOY_RADIUS:
+		delta = delta.normalized() * JOY_RADIUS
+	touch_dir = delta.normalized() if dist > 15 else Vector2.ZERO
+	touch_running = dist > JOY_RADIUS * 0.65
+	if joy_knob:
+		joy_knob.position = joy_knob_origin + delta
+
+func _stop_joystick(pointer_id):
+	if pointer_id != joystick_pointer_id:
+		return
+	joystick_active = false
+	joystick_pointer_id = -1
+	touch_dir = Vector2.ZERO
+	touch_running = false
+	if joy_knob:
+		joy_knob.position = joy_knob_origin
 
 # 键盘+触摸统一处理
 func _physics_process(delta):
