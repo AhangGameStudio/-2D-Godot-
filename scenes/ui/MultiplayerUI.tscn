@@ -1,0 +1,43 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/MultiplayerUI.gd" id="1"]
+
+[node name="MultiplayerUI" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+size = Vector2(360, 280)
+position = Vector2(260, 140)
+
+[node name="Title" type="Label" parent="Panel"]
+position = Vector2(130, 15)
+size = Vector2(100, 28)
+text = "联 机 游 戏"
+horizontal_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Panel"]
+position = Vector2(15, 15)
+size = Vector2(60, 24)
+text = "< 返回"
+
+[node name="HostBtn" type="Button" parent="Panel"]
+position = Vector2(55, 60)
+size = Vector2(250, 44)
+text = "主 机 游 戏（开房）"
+
+[node name="JoinBtn" type="Button" parent="Panel"]
+position = Vector2(55, 115)
+size = Vector2(250, 44)
+text = "加 入 游 戏"
+
+[node name="IPInput" type="LineEdit" parent="Panel"]
+position = Vector2(55, 175)
+size = Vector2(250, 32)
+
+[node name="Status" type="Label" parent="Panel"]
+position = Vector2(55, 225)
+size = Vector2(250, 24)
+text = "就绪"
+horizontal_alignment = 1

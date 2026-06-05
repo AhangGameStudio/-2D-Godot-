@@ -8,19 +8,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="Panel" parent="."]
-position = Vector2(440, 220)
-size = Vector2(400, 380)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200
+margin_top = -210
+margin_right = 200
+margin_bottom = 210
 
 [node name="TitleLabel" type="Label" parent="Panel"]
-position = Vector2(10, 10)
-size = Vector2(100, 24)
-text = "天赋技能"
+position = Vector2(20, 12)
+size = Vector2(120, 24)
+text = "天 赋 系 统"
 
 [node name="CloseButton" type="Button" parent="Panel"]
-position = Vector2(355, 8)
+position = Vector2(355, 10)
 size = Vector2(35, 24)
 text = "X"
 
-[node name="SkillList" type="VBoxContainer" parent="Panel"]
-position = Vector2(10, 40)
-size = Vector2(380, 320)
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+position = Vector2(15, 45)
+size = Vector2(370, 360)

@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/CraftingUI.gd" id="1"]
+
+[node name="CraftingUI" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250
+margin_top = -210
+margin_right = 250
+margin_bottom = 210
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+position = Vector2(20, 12)
+size = Vector2(200, 24)
+text = "合 成 台"
+
+[node name="CloseButton" type="Button" parent="Panel"]
+position = Vector2(450, 10)
+size = Vector2(40, 24)
+text = "X"
+
+[node name="RecipeList" type="ScrollContainer" parent="Panel"]
+position = Vector2(15, 45)
+size = Vector2(230, 320)
+
+[node name="RecipeVBox" type="VBoxContainer" parent="Panel/RecipeList"]
+size = Vector2(220, 0)
+
+[node name="DetailPanel" type="Panel" parent="Panel"]
+position = Vector2(260, 45)
+size = Vector2(225, 320)
+
+[node name="DetailVBox" type="VBoxContainer" parent="Panel/DetailPanel"]
+position = Vector2(10, 10)
+size = Vector2(205, 300)
+
+[node name="QtyHBox" type="HBoxContainer" parent="Panel"]
+position = Vector2(15, 375)
+size = Vector2(470, 35)
