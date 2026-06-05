@@ -1,0 +1,10 @@
+E 0:00:02:287   Menu.gd:17 @ _on_new_game(): Parse Error: Parse error. [Resource file res://scenes/ui/HUD.tscn:27]
+  <C++ 源文件>     scene/resources/resource_format_text.cpp:292 @ _parse_node_tag()
+  <栈追踪>         Menu.gd:17 @ _on_new_game()
+E 0:00:02:287   Menu.gd:17 @ _on_new_game(): Failed loading resource: res://scenes/ui/HUD.tscn.
+  <C++ 错误>      Condition "found" is true. Returning: Ref<Resource>()
+  <C++ 源文件>     core/io/resource_loader.cpp:343 @ _load()
+  <栈追踪>         Menu.gd:17 @ _on_new_game()
+E 0:00:02:305   Menu.gd:17 @ _on_new_game(): res://scenes/main.tscn:28 - Parse Error: [ext_resource] referenced non-existent resource at: res://scenes/ui/HUD.tscn.
+  <C++ 源文件>     scene/resources/resource_format_text.cpp:40 @ _printerr()
+  <栈追踪>         Menu.gd:17 @ _on_new_game()

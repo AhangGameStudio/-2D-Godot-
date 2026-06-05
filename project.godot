@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.6")
+
+[filesystem]
+
+import/blender/enabled=false
+
+[resource]
+
+config/name="魔幻人生"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="魔幻人生"
+application/config/title="魔幻人生"
+application/config/use_high_dpi=true
+application/run/main_scene="res://scenes/menu.tscn"
+application/run/fps/limit=60
+application/run/fps/fixed=60
+display/window/size/width=1280
+display/window/size/height=720
+display/window/stretch/mode="viewport"
+display/window/stretch/aspect="expand"
+rendering/quality/driver/driver_name="Vulkan"
+rendering/quality/anti_aliasing/quality=2
+rendering/quality/textures/default_texture_filter=1
+audio/bus/master/volume_db=0.0
+audio/bus/master/mute=false
+input/mouse_mode=2
+physics/2d/default_gravity=0
+physics/2d/default_linear_damp=0.1
+physics/2d/default_angular_damp=0.1
+network/limits/max_packet_size=4096
+network/limits/max_connections=32

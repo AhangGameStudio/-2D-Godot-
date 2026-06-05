@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/Inventory.gd" id="1"]
+
+[node name="Inventory" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+position = Vector2(440, 220)
+size = Vector2(400, 380)
+
+[node name="TitleLabel" type="Label" parent="Panel"]
+position = Vector2(10, 10)
+size = Vector2(100, 24)
+text = "背包"
+
+[node name="CloseButton" type="Button" parent="Panel"]
+position = Vector2(355, 8)
+size = Vector2(35, 24)
+text = "X"
+
+[node name="InventoryGrid" type="GridContainer" parent="Panel"]
+position = Vector2(10, 40)
+size = Vector2(380, 320)
+columns = 5
+
+[node name="ItemCount" type="Label" parent="Panel"]
+position = Vector2(10, 365)
+size = Vector2(200, 15)
+text = "物品数量: 0/20"

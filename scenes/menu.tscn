@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/menu/menu.jpg" id="2"]
+
+[node name="Menu" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+centered = true
+
+[node name="Panel" type="Panel" parent="."]
+position = Vector2(460, 400)
+size = Vector2(240, 280)
+
+[node name="NewGameButton" type="Button" parent="Panel"]
+position = Vector2(20, 30)
+size = Vector2(200, 40)
+text = "新游戏"
+
+[node name="LoadGameButton" type="Button" parent="Panel"]
+position = Vector2(20, 85)
+size = Vector2(200, 40)
+text = "继续游戏"
+
+[node name="QuitButton" type="Button" parent="Panel"]
+position = Vector2(20, 195)
+size = Vector2(200, 40)
+text = "退出游戏"
+
+[node name="VersionLabel" type="Label" parent="."]
+position = Vector2(600, 680)
+size = Vector2(80, 20)
+text = "v1.0.0"
