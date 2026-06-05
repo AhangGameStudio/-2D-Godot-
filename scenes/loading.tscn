@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/LoadingScreen.gd" id="1"]
+
+[node name="LoadingScreen" type="Control"]
+script = ExtResource("1")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.025, 0.03, 0.045, 1)
+
+[node name="MapArea" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -230.0
+offset_right = 420.0
+offset_bottom = 210.0
+
+[node name="MapFrame" type="Panel" parent="MapArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TileLayer" type="Control" parent="MapArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="MarkerLayer" type="Control" parent="MapArea"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="ScanLine" type="ColorRect" parent="MapArea"]
+offset_left = 0.0
+offset_top = 8.0
+offset_right = 4.0
+offset_bottom = 432.0
+color = Color(0.35, 0.9, 1, 0.55)
+
+[node name="TitleLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -220.0
+offset_top = 42.0
+offset_right = 220.0
+offset_bottom = 82.0
+horizontal_alignment = 1
+text = "正在绘制阿斯特拉大陆"
+
+[node name="StatusLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -120.0
+offset_right = 260.0
+offset_bottom = -92.0
+horizontal_alignment = 1
+text = "唤醒灵能脉络..."
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -260.0
+offset_top = -82.0
+offset_right = 260.0
+offset_bottom = -54.0
+max_value = 100.0
+show_percentage = false
+
+[node name="HintLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -46.0
+offset_right = 320.0
+offset_bottom = -22.0
+horizontal_alignment = 1
+text = "森林、荒漠、冰川与深渊正在连接..."

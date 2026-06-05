@@ -1,5 +1,7 @@
 extends Area2D
 
+const MONSTER_TEXTURE = preload("res://assets/characters/monster.png")
+
 var monster_type = ""
 var health = 100
 var max_health = 100
@@ -15,6 +17,8 @@ var wander_direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 
 func _ready():
+    $Sprite2D.texture = MONSTER_TEXTURE
+    $Sprite2D.modulate = Color.WHITE
     $HealthBar.max_value = max_health
     $HealthBar.value = health
     

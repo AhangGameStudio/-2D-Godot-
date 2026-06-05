@@ -10,6 +10,11 @@ config_version=5
 
 [application]
 
+config/name="魔幻人生"
+config/icon="res://assets/icons/game_icon.png"
+boot_splash/image="res://assets/world/Start.png"
+boot_splash/fullsize=true
+boot_splash/use_filter=true
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.6")
 

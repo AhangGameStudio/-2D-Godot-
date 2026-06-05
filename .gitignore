@@ -1,0 +1,88 @@
+# Godot local cache and generated import output
+.godot/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# Large source packages and working files.
+# Keep exported PNG/JPG/OGG assets in the repo; keep these raw files local unless you use Git LFS.
+*.exr
+*.xcf
+*.psd
+*.blend
+*.zip
+*_backup/
+_watermark_backup/
+
+# Keep the uploaded asset libraries local for now. Only the paths used by the
+# current scenes/scripts are allowed back in below.
+icon/
+assets/*
+!assets/world/
+assets/world/*
+!assets/world/Start.png
+!assets/world/Start.png.import
+!assets/characters/
+!assets/characters/**
+!assets/icons/
+!assets/icons/**
+assets/icons/4.png
+assets/icons/4.png.import
+assets/icons/1780394246293.png.import
+!assets/mobile-controls/
+assets/mobile-controls/*
+!assets/mobile-controls/Sprites/
+assets/mobile-controls/Sprites/*
+!assets/mobile-controls/Sprites/Icons/
+assets/mobile-controls/Sprites/Icons/*
+!assets/mobile-controls/Sprites/Icons/Default/
+assets/mobile-controls/Sprites/Icons/Default/*
+!assets/mobile-controls/Sprites/Icons/Default/icon_hand.png
+!assets/mobile-controls/Sprites/Icons/Default/icon_hand.png.import
+!assets/mobile-controls/Sprites/Icons/Default/icon_sword.png
+!assets/mobile-controls/Sprites/Icons/Default/icon_sword.png.import
+!assets/mobile-controls/Sprites/Style A/
+assets/mobile-controls/Sprites/Style A/*
+!assets/mobile-controls/Sprites/Style A/Default/
+assets/mobile-controls/Sprites/Style A/Default/*
+!assets/mobile-controls/Sprites/Style A/Default/button_circle.png
+!assets/mobile-controls/Sprites/Style A/Default/button_circle.png.import
+!assets/mobile-controls/Sprites/Style A/Default/joystick_polygon_nub_a.png
+!assets/mobile-controls/Sprites/Style A/Default/joystick_polygon_nub_a.png.import
+!assets/mobile-controls/Sprites/Style A/Default/joystick_polygon_pad_a.png
+!assets/mobile-controls/Sprites/Style A/Default/joystick_polygon_pad_a.png.import
+!assets/textures/
+assets/textures/*
+!assets/textures/buildings/
+!assets/textures/buildings/**
+!assets/textures/terrain/
+assets/textures/terrain/*
+!assets/textures/terrain/Grass001/
+assets/textures/terrain/Grass001/*
+!assets/textures/terrain/Grass001/Grass001.png
+!assets/textures/terrain/Grass001/Grass001.png.import
+!assets/textures/terrain/Lava001/
+assets/textures/terrain/Lava001/*
+!assets/textures/terrain/Lava001/Lava001.png
+!assets/textures/terrain/Lava001/Lava001.png.import
+!assets/textures/terrain/Rock044/
+assets/textures/terrain/Rock044/*
+!assets/textures/terrain/Rock044/Rock044.png
+!assets/textures/terrain/Rock044/Rock044.png.import
+!assets/textures/terrain/Rock051/
+assets/textures/terrain/Rock051/*
+!assets/textures/terrain/Rock051/Rock051.png
+!assets/textures/terrain/Rock051/Rock051.png.import
+!assets/textures/terrain/Snow011/
+assets/textures/terrain/Snow011/*
+!assets/textures/terrain/Snow011/Snow011.png
+!assets/textures/terrain/Snow011/Snow011.png.import
+
+# Local export/build outputs
+exports/
+builds/
+*.exe
+*.pck

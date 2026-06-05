@@ -1,37 +1,99 @@
-[gd_scene format=3]
+[gd_scene load_steps=7 format=3 uid="uid://dststyr4w2tag"]
 
-[ext_resource type="Script" path="res://scripts/Menu.gd" id="1"]
-[ext_resource type="Texture2D" path="res://assets/ui/menu/menu.jpg" id="2"]
+[ext_resource type="Script" uid="uid://fr2hr4obuy75" path="res://scripts/Menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwj837yh0ybqx" path="res://首图.jpg" id="2"]
 
-[node name="Menu" type="Control"]
-script = ExtResource("1")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_clear"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_normal"]
+bg_color = Color(0.04, 0.06, 0.08, 0.46)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.08, 0.13, 0.17, 0.64)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_pressed"]
+bg_color = Color(0.02, 0.04, 0.06, 0.72)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Menu" type="Control" unique_id=829811406]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource("1")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=2031041035]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource("2")
-centered = true
+expand_mode = 1
+stretch_mode = 6
 
-[node name="Panel" type="Panel" parent="."]
-position = Vector2(460, 400)
-size = Vector2(240, 280)
+[node name="Panel" type="Panel" parent="." unique_id=523764861]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 365.0
+offset_right = 693.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_clear")
 
-[node name="NewGameButton" type="Button" parent="Panel"]
-position = Vector2(20, 30)
-size = Vector2(200, 40)
+[node name="NewGameButton" type="Button" parent="Panel" unique_id=1600936478]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = 220.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_panel_clear")
 text = "新游戏"
 
-[node name="LoadGameButton" type="Button" parent="Panel"]
-position = Vector2(20, 85)
-size = Vector2(200, 40)
+[node name="LoadGameButton" type="Button" parent="Panel" unique_id=422230141]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 85.0
+offset_right = 220.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_panel_clear")
 text = "继续游戏"
 
-[node name="QuitButton" type="Button" parent="Panel"]
-position = Vector2(20, 195)
-size = Vector2(200, 40)
+[node name="QuitButton" type="Button" parent="Panel" unique_id=918175477]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 195.0
+offset_right = 220.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_pressed")
+theme_override_styles/focus = SubResource("StyleBoxFlat_panel_clear")
 text = "退出游戏"
 
-[node name="VersionLabel" type="Label" parent="."]
-position = Vector2(600, 680)
-size = Vector2(80, 20)
+[node name="VersionLabel" type="Label" parent="." unique_id=1163392652]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 601.0
+offset_right = 627.0
+offset_bottom = 624.0
 text = "v1.0.0"

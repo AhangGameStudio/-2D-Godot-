@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 250.0
 const RUN_SPEED = 400.0
 const JOY_RADIUS = 80.0
+const PLAYER_TEXTURE = preload("res://assets/characters/player.png")
 
 var camera = null
 var touch_dir = Vector2.ZERO
@@ -13,12 +14,7 @@ var joy_knob = null
 var joy_knob_origin = Vector2.ZERO
 
 func _ready():
-	# 生成可见的彩色精灵纹理
-	var img = Image.create(32, 40, false, Image.FORMAT_RGBA8)
-	img.fill(Color(0.3, 0.6, 0.9))  # 蓝色
-	# 画一个简单的轮廓
-	var tex = ImageTexture.create_from_image(img)
-	$Sprite2D.texture = tex
+	$Sprite2D.texture = PLAYER_TEXTURE
 	$Sprite2D.scale = Vector2(2.0, 2.0)
 	
 	# 找相机
@@ -137,10 +133,10 @@ func _input(event):
 func _physics_process(delta):
 	var dir = Vector2.ZERO
 	
-	if Input.is_action_pressed("ui_left"): dir.x -= 1
-	if Input.is_action_pressed("ui_right"): dir.x += 1
-	if Input.is_action_pressed("ui_up"): dir.y -= 1
-	if Input.is_action_pressed("ui_down"): dir.y += 1
+	if Input.is_key_pressed(KEY_A) or Input.is_action_pressed("ui_left"): dir.x -= 1
+	if Input.is_key_pressed(KEY_D) or Input.is_action_pressed("ui_right"): dir.x += 1
+	if Input.is_key_pressed(KEY_W) or Input.is_action_pressed("ui_up"): dir.y -= 1
+	if Input.is_key_pressed(KEY_S) or Input.is_action_pressed("ui_down"): dir.y += 1
 	
 	if touch_dir.length() > 0:
 		dir = touch_dir

@@ -19,9 +19,9 @@ var game_state = {
 
 func _ready():
 	player = $World/Player if has_node("World/Player") else null
-	hud = $HUD if has_node("HUD") else null
-	inventory_panel = $Inventory if has_node("Inventory") else null
-	skill_panel = $SkillPanel if has_node("SkillPanel") else null
+	hud = $UI/HUD if has_node("UI/HUD") else null
+	inventory_panel = $UI/Inventory if has_node("UI/Inventory") else null
+	skill_panel = $UI/SkillPanel if has_node("UI/SkillPanel") else null
 	camera = $Camera2D if has_node("Camera2D") else null
 	
 	if hud and hud.has_signal("open_inventory"):
@@ -35,6 +35,16 @@ func _process(delta):
 	update_day_time(delta)
 	if player and camera:
 		camera.position = camera.position.lerp(player.position, 0.1)
+
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		if inventory_panel and inventory_panel.visible:
+			inventory_panel.visible = false
+			return
+		if skill_panel and skill_panel.visible:
+			skill_panel.visible = false
+			return
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func update_day_time(delta):
 	game_state.day_time += delta * 0.1

@@ -8,71 +8,77 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 10.0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -330.0
 offset_top = 10.0
-offset_right = 230.0
-offset_bottom = 90.0
+offset_right = -10.0
+offset_bottom = 136.0
 
 [node name="HealthBar" type="ProgressBar" parent="Panel"]
-position = Vector2(10, 10)
-size = Vector2(100, 12)
+position = Vector2(62, 14)
+size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
+show_percentage = false
 
 [node name="HealthLabel" type="Label" parent="Panel"]
-position = Vector2(10, 5)
-size = Vector2(30, 20)
+position = Vector2(12, 10)
+size = Vector2(42, 22)
 text = "HP"
 
 [node name="StaminaBar" type="ProgressBar" parent="Panel"]
-position = Vector2(10, 28)
-size = Vector2(100, 12)
+position = Vector2(62, 38)
+size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
+show_percentage = false
 
 [node name="StaminaLabel" type="Label" parent="Panel"]
-position = Vector2(10, 23)
-size = Vector2(40, 20)
+position = Vector2(12, 34)
+size = Vector2(42, 22)
 text = "STA"
 
 [node name="HungerBar" type="ProgressBar" parent="Panel"]
-position = Vector2(10, 46)
-size = Vector2(100, 12)
+position = Vector2(62, 62)
+size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
+show_percentage = false
 
 [node name="HungerLabel" type="Label" parent="Panel"]
-position = Vector2(10, 41)
-size = Vector2(40, 20)
+position = Vector2(12, 58)
+size = Vector2(42, 22)
 text = "HUN"
 
 [node name="ManaBar" type="ProgressBar" parent="Panel"]
-position = Vector2(10, 64)
-size = Vector2(100, 12)
+position = Vector2(62, 86)
+size = Vector2(130, 14)
 max_value = 100.0
 value = 50.0
+show_percentage = false
 
 [node name="ManaLabel" type="Label" parent="Panel"]
-position = Vector2(10, 59)
-size = Vector2(30, 20)
+position = Vector2(12, 82)
+size = Vector2(42, 22)
 text = "MAN"
 
 [node name="LevelLabel" type="Label" parent="Panel"]
-position = Vector2(120, 10)
-size = Vector2(60, 20)
+position = Vector2(212, 14)
+size = Vector2(84, 22)
 text = "Lv.1"
 
 [node name="DayTimeLabel" type="Label" parent="Panel"]
-position = Vector2(120, 35)
-size = Vector2(60, 20)
+position = Vector2(212, 42)
+size = Vector2(84, 22)
 text = "06:00"
 
 [node name="InventoryButton" type="Button" parent="Panel"]
-position = Vector2(120, 55)
-size = Vector2(45, 20)
+position = Vector2(202, 78)
+size = Vector2(52, 28)
 text = "背包"
 
 [node name="SkillButton" type="Button" parent="Panel"]
-position = Vector2(170, 55)
-size = Vector2(45, 20)
+position = Vector2(260, 78)
+size = Vector2(52, 28)
 text = "技能"
