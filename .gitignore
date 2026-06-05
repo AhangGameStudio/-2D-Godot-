@@ -27,11 +27,26 @@ assets/world/*
 !assets/world/Start.png.import
 !assets/characters/
 !assets/characters/**
+!assets/audio/
+assets/audio/*
+!assets/audio/music/
+assets/audio/music/*
+!assets/audio/music/41529_108319-lq.mp3
+!assets/audio/music/41529_108319-lq.mp3.import
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/
+assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/*
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/
+assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/*
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_01.ogg
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_01.ogg.import
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_02.ogg
+!assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_02.ogg.import
 !assets/icons/
 !assets/icons/**
 assets/icons/4.png
 assets/icons/4.png.import
 assets/icons/1780394246293.png.import
+assets/icons/_icons_overview.png
 !assets/mobile-controls/
 assets/mobile-controls/*
 !assets/mobile-controls/Sprites/
@@ -60,6 +75,8 @@ assets/textures/*
 !assets/textures/buildings/**
 !assets/textures/terrain/
 assets/textures/terrain/*
+!assets/textures/terrain/grass_dirt/
+!assets/textures/terrain/grass_dirt/**
 !assets/textures/terrain/Grass001/
 assets/textures/terrain/Grass001/*
 !assets/textures/terrain/Grass001/Grass001.png

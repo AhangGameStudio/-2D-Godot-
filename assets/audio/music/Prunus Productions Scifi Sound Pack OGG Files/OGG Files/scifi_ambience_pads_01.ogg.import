@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwyggic7tjcli"
+path="res://.godot/imported/scifi_ambience_pads_01.ogg-2b014498608d2d034d545bfbb9a3bb4d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_01.ogg"
+dest_files=["res://.godot/imported/scifi_ambience_pads_01.ogg-2b014498608d2d034d545bfbb9a3bb4d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

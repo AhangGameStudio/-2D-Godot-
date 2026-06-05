@@ -5,6 +5,15 @@ var hud = null
 var inventory_panel = null
 var skill_panel = null
 var camera = null
+var exit_dialog = null
+var music_player = null
+var current_music_index = 0
+
+const GAME_MUSIC_VOLUME_DB = -28.0
+const GAME_MUSIC_TRACKS = [
+	preload("res://assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_01.ogg"),
+	preload("res://assets/audio/music/Prunus Productions Scifi Sound Pack OGG Files/OGG Files/scifi_ambience_pads_02.ogg")
+]
 
 var game_state = {
 	day_time = 0,
@@ -12,7 +21,7 @@ var game_state = {
 	weather = "sunny",
 	player_stats = {
 		health = 100, stamina = 100, hunger = 100,
-		mana = 50, level = 1, experience = 0
+		mana = 50, thirst = 100, level = 1, experience = 0
 	},
 	skills = {craftsman = 0, mage = 0, warrior = 0, merchant = 0, hermit = 0}
 }
@@ -22,6 +31,7 @@ func _ready():
 	hud = $UI/HUD if has_node("UI/HUD") else null
 	inventory_panel = $UI/Inventory if has_node("UI/Inventory") else null
 	skill_panel = $UI/SkillPanel if has_node("UI/SkillPanel") else null
+	exit_dialog = $UI/ExitDialog if has_node("UI/ExitDialog") else null
 	camera = $Camera2D if has_node("Camera2D") else null
 	
 	if hud and hud.has_signal("open_inventory"):
@@ -30,6 +40,13 @@ func _ready():
 		hud.open_skills.connect(_on_open_skills)
 	if player and player.has_signal("update_stats"):
 		player.update_stats.connect(_on_player_stats_update)
+	if inventory_panel and inventory_panel.has_method("set_player"):
+		inventory_panel.set_player(player)
+	if exit_dialog:
+		$UI/ExitDialog/Panel/QuitGameButton.pressed.connect(_on_quit_game_pressed)
+		$UI/ExitDialog/Panel/MainMenuButton.pressed.connect(_on_main_menu_pressed)
+	
+	_start_game_music()
 
 func _process(delta):
 	update_day_time(delta)
@@ -38,13 +55,17 @@ func _process(delta):
 
 func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		if exit_dialog and exit_dialog.visible:
+			exit_dialog.visible = false
+			return
 		if inventory_panel and inventory_panel.visible:
 			inventory_panel.visible = false
 			return
 		if skill_panel and skill_panel.visible:
 			skill_panel.visible = false
 			return
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		if exit_dialog:
+			exit_dialog.visible = true
 
 func update_day_time(delta):
 	game_state.day_time += delta * 0.1
@@ -63,8 +84,8 @@ func _on_player_stats_update(stats):
 func _on_open_inventory():
 	if inventory_panel:
 		inventory_panel.visible = not inventory_panel.visible
-		if inventory_panel.visible and player:
-			pass
+		if inventory_panel.visible and player and inventory_panel.has_method("update_inventory"):
+			inventory_panel.update_inventory(player.inventory)
 
 func _on_open_skills():
 	if skill_panel:
@@ -84,3 +105,27 @@ func add_experience(amount):
 func update_skill(skill_name, amount):
 	if skill_name in game_state.skills:
 		game_state.skills[skill_name] += amount
+
+func _start_game_music():
+	if GAME_MUSIC_TRACKS.is_empty():
+		return
+	music_player = AudioStreamPlayer.new()
+	music_player.name = "GameMusic"
+	music_player.volume_db = GAME_MUSIC_VOLUME_DB
+	music_player.finished.connect(_on_music_finished)
+	add_child(music_player)
+	_play_music_track(0)
+
+func _play_music_track(index):
+	current_music_index = index % GAME_MUSIC_TRACKS.size()
+	music_player.stream = GAME_MUSIC_TRACKS[current_music_index]
+	music_player.play()
+
+func _on_music_finished():
+	_play_music_track(current_music_index + 1)
+
+func _on_quit_game_pressed():
+	get_tree().quit()
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

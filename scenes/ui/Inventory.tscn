@@ -12,8 +12,8 @@ position = Vector2(440, 220)
 size = Vector2(400, 380)
 
 [node name="TitleLabel" type="Label" parent="Panel"]
-position = Vector2(10, 10)
-size = Vector2(100, 24)
+position = Vector2(14, 10)
+size = Vector2(120, 24)
 text = "背包"
 
 [node name="CloseButton" type="Button" parent="Panel"]
@@ -22,11 +22,13 @@ size = Vector2(35, 24)
 text = "X"
 
 [node name="InventoryGrid" type="GridContainer" parent="Panel"]
-position = Vector2(10, 40)
-size = Vector2(380, 320)
+position = Vector2(14, 42)
+size = Vector2(360, 288)
 columns = 5
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
 [node name="ItemCount" type="Label" parent="Panel"]
-position = Vector2(10, 365)
-size = Vector2(200, 15)
+position = Vector2(14, 348)
+size = Vector2(200, 22)
 text = "物品数量: 0/20"

@@ -34,3 +34,40 @@ visible = false
 
 [node name="SkillPanel" parent="UI" instance=ExtResource("5")]
 visible = false
+
+[node name="ExitDialog" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Dim" type="ColorRect" parent="UI/ExitDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.48)
+
+[node name="Panel" type="Panel" parent="UI/ExitDialog"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -85.0
+offset_right = 150.0
+offset_bottom = 85.0
+
+[node name="Title" type="Label" parent="UI/ExitDialog/Panel"]
+position = Vector2(20, 16)
+size = Vector2(260, 26)
+horizontal_alignment = 1
+text = "要离开当前游戏吗？"
+
+[node name="QuitGameButton" type="Button" parent="UI/ExitDialog/Panel"]
+position = Vector2(36, 62)
+size = Vector2(232, 34)
+text = "退出游戏"
+
+[node name="MainMenuButton" type="Button" parent="UI/ExitDialog/Panel"]
+position = Vector2(36, 110)
+size = Vector2(232, 34)
+text = "退出到主界面"

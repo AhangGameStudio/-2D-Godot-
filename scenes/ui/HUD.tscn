@@ -20,48 +20,48 @@ position = Vector2(62, 14)
 size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
-show_percentage = false
+show_percentage = true
 
 [node name="HealthLabel" type="Label" parent="Panel"]
 position = Vector2(12, 10)
 size = Vector2(42, 22)
-text = "HP"
+text = "血量"
 
 [node name="StaminaBar" type="ProgressBar" parent="Panel"]
 position = Vector2(62, 38)
 size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
-show_percentage = false
+show_percentage = true
 
 [node name="StaminaLabel" type="Label" parent="Panel"]
 position = Vector2(12, 34)
 size = Vector2(42, 22)
-text = "STA"
+text = "蓝量"
 
 [node name="HungerBar" type="ProgressBar" parent="Panel"]
 position = Vector2(62, 62)
 size = Vector2(130, 14)
 max_value = 100.0
 value = 100.0
-show_percentage = false
+show_percentage = true
 
 [node name="HungerLabel" type="Label" parent="Panel"]
 position = Vector2(12, 58)
 size = Vector2(42, 22)
-text = "HUN"
+text = "饥饿"
 
 [node name="ManaBar" type="ProgressBar" parent="Panel"]
 position = Vector2(62, 86)
 size = Vector2(130, 14)
 max_value = 100.0
-value = 50.0
-show_percentage = false
+value = 100.0
+show_percentage = true
 
 [node name="ManaLabel" type="Label" parent="Panel"]
 position = Vector2(12, 82)
 size = Vector2(42, 22)
-text = "MAN"
+text = "口渴"
 
 [node name="LevelLabel" type="Label" parent="Panel"]
 position = Vector2(212, 14)
